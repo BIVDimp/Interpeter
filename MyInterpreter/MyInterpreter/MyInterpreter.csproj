@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69E9831F-5CF2-4CD2-98BE-D1DB32AC3416}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyInterpreter</RootNamespace>
+    <AssemblyName>MyInterpreter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AST\Expressions\ArrayCreator.cs" />
+    <Compile Include="AST\Statements\Assignment.cs" />
+    <Compile Include="AST\Expressions\BinaryOperation.cs" />
+    <Compile Include="AST\Statements\Block.cs" />
+    <Compile Include="AST\Statements\BlockEnd.cs" />
+    <Compile Include="AST\Statements\Break.cs" />
+    <Compile Include="AST\Statements\Breakpoints\Breakpoint.cs" />
+    <Compile Include="AST\Statements\Breakpoints\ConditionBreakpoint.cs" />
+    <Compile Include="AST\Statements\Breakpoints\HitCountBreakpoint.cs" />
+    <Compile Include="AST\Statements\FunctionEnd.cs" />
+    <Compile Include="AST\Statements\EndIterationStatement.cs" />
+    <Compile Include="AST\Function.cs" />
+    <Compile Include="AST\Statements\FunctionCall.cs" />
+    <Compile Include="AST\Statements\FunctionCallExpr.cs" />
+    <Compile Include="AST\Statements\Invisible.cs" />
+    <Compile Include="AST\Statements\IterationStatement.cs" />
+    <Compile Include="AST\Statements\JumpStatement.cs" />
+    <Compile Include="AST\Statements\Print.cs" />
+    <Compile Include="AST\Expressions\Condition.cs" />
+    <Compile Include="AST\Expressions\Constant.cs" />
+    <Compile Include="AST\Statements\Declaration.cs" />
+    <Compile Include="AST\Statements\DoWhile.cs" />
+    <Compile Include="AST\Expressions\Expression.cs" />
+    <Compile Include="AST\Statements\For.cs" />
+    <Compile Include="AST\Statements\Fork.cs" />
+    <Compile Include="AST\Statements\Goto.cs" />
+    <Compile Include="AST\Statements\If.cs" />
+    <Compile Include="AST\Label.cs" />
+    <Compile Include="AST\Statements\Method.cs" />
+    <Compile Include="AST\Node.cs" />
+    <Compile Include="AST\Program.cs" />
+    <Compile Include="AST\FunctionSignature.cs" />
+    <Compile Include="AST\Statements\Return.cs" />
+    <Compile Include="AST\Expressions\Slice.cs" />
+    <Compile Include="AST\Statements\Statement.cs" />
+    <Compile Include="AST\Expressions\UnaryOperation.cs" />
+    <Compile Include="AST\Expressions\Variable.cs" />
+    <Compile Include="AST\Statements\Breakpoints\StopBreakpoint.cs" />
+    <Compile Include="AST\Statements\While.cs" />
+    <Compile Include="DictionaryList.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
+    <Compile Include="Exceptions\InterpretException.cs" />
+    <Compile Include="Exceptions\LexerException.cs" />
+    <Compile Include="Exceptions\ParserException.cs" />
+    <Compile Include="Exceptions\ValueException.cs" />
+    <Compile Include="ExpressionCalculator.cs" />
+    <Compile Include="Helper\IVariableToValue.cs" />
+    <Compile Include="Helper\Pair.cs" />
+    <Compile Include="Helper\Triplet.cs" />
+    <Compile Include="InterpreterState\CorrectRunningStatus.cs" />
+    <Compile Include="InterpreterState\DebuggingProcessStatus.cs" />
+    <Compile Include="InterpreterState\EndDebugStatus.cs" />
+    <Compile Include="InterpreterState\HaveErrorsStatus.cs" />
+    <Compile Include="InterpreterState\BaseInterpreterStatus.cs" />
+    <Compile Include="InterpreterState\CorrectBuildingStatus.cs" />
+    <Compile Include="Lexer.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Parser.Verifier.cs" />
+    <Compile Include="Helper\Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token.cs" />
+    <Compile Include="Values\Array.cs" />
+    <Compile Include="Values\Bool.cs" />
+    <Compile Include="Values\Char.cs" />
+    <Compile Include="Values\Double.cs" />
+    <Compile Include="Values\Int.cs" />
+    <Compile Include="Values\OperationResult.cs" />
+    <Compile Include="Values\String.cs" />
+    <Compile Include="Values\Value.cs" />
+    <Compile Include="Values\ValueType.cs" />
+    <Compile Include="Values\Void.cs" />
+    <Compile Include="Interpreter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Interfaces\Interfaces\Interfaces.csproj">
+      <Project>{312ea60a-e5b4-443e-91fe-aecd81df9d22}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
